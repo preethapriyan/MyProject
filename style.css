@@ -1,0 +1,29 @@
+body {
+    margin: 25px;
+    background-color: coral;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    padding: 25px; 
+    width: 100%;
+    height: 100%
+  }
+  .container {
+    width: 800px;
+    clear: both;
+  }
+  .container input {
+    width: 50%;
+    clear: both;
+  }
+  .bg {
+    background-image: url("cash.jpg");
+    height: 10%; 
+  
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .someclass { color: red; }
+  #someid { color: green; }

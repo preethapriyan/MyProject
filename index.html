@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>HR DASHBOARD SALARY PREDICTION</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<style>
+    .age{
+        position: relative;
+        left: -280px;
+        top: 45px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+         }
+
+    .Race{
+        position: relative;
+        left: 260px;
+        top: -460px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+              }
+   .Workclass{
+       position: relative;
+        left: -280px;
+        top: 55px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+            }
+   .Fnlwgt{
+        position: relative;
+        left: -280px;
+        top: 65px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+          }
+   .Education{
+        position: relative;
+        left: -280px;
+        top: 75px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+             }
+    .Educational-num{
+	    position: relative;
+        left: -280px;
+        top: 85px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+                }
+    .Marital-status{
+        position: relative;
+        left: -280px;
+        top: 95px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+                  }
+    .Occupation{
+	    position: relative;
+        left: -280px;
+        top: 115px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+               }
+    .Relationship{
+	    position: relative;
+        left: -280px;
+        top: 125px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+                 }
+    .Gender{
+        position: relative;
+        left: 260px;
+        top: -450px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+              }
+    .Capital-gain{
+        position: relative;
+        left: 260px;
+        top: -440px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+              }
+    .Capital-loss{
+        position: relative;
+        left: 260px;
+        top: -430px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+              }
+    .Hours-per-week{
+        position: relative;
+        left: 260px;
+        top: -420px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+              }
+    .Native-country{
+        position: relative;
+        left: 260px;
+        top: -410px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+              }
+    .Age_bin{
+        position: relative;
+        left: 260px;
+        top: -400px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+              }
+    .Hours-per-week_bin{
+        position: relative;
+        left: 260px;
+        top: -390px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 17px;
+              }
+    .btn-1{
+         left: 300px;
+         top: -555px;
+         color:rgb(145, 23, 23);
+         cursor: pointer;
+    }
+    .salary{
+        color: crimson;
+        font-size: large;
+        
+    }
+    button{
+        background-color:#3BAF9F;
+        display: block;
+        margin: 20px 0px 0px 20px;
+        text-align: center;
+        border-radius: 12px;
+        border:2px solid #366473;
+        padding: 14px 110px;
+        outline: none;
+        color: white;
+        cursor: pointer;
+        transition: 0.25px;
+        position: relative;
+        bottom: 250px;
+ }
+   button :hover{
+       background-color: #5390F5;
+   }
+   .head{
+       
+       top: 20px;
+        color: rgb(31, 110, 110);
+        font-size: 50px;
+
+
+        }
+        .text{
+            bottom: 250px;
+
+        }
+    
+</style>
+<body background="/static/images/cash.jpg" style="height: 100%;background-position: center;background-repeat: no-repeat;background-size:cover">
+    <div align="center" class="head">
+        <h1 align="center"></h1>SALARY PREDICTION</h1><br><br>
+<!-- Main Input For Receiving Query to our ML -->
+
+<form action="{{ url_for('predict')}}"method="post">
+    <input type="text" class="age" name="Age" placeholder="Age" required="required" /><br>
+    <input type="text" class="Workclass" name="Workclass" placeholder="Workclass" required="required" /><br>
+    <input type="text" class="Fnlwgt" name="Fnlwgt" placeholder="Fnlwgt" required="required" /><br>
+    <input type="text" class="Education" name="Education" placeholder="Education" required="required" /><br>
+    <input type="text" class="Educational-num"  name="Educational-num" placeholder="Educational-num" required="required" /><br>
+    <input type="text" class="Marital-status"  name="Marital-status" placeholder="Marital-status" required="required" /><br>
+    <input type="text" class="Occupation" name="Occupation" placeholder="Occupation" required="required" /><br>
+    <input type="text" class="Relationship" name="Relationship" placeholder="Relationship" required="required" /><br>
+    <input type="text" class="Race" name="Race" placeholder="Race" required="required" /><br>
+    <input type="text" class="Gender" name="Gender" placeholder="Gender" required="required" /><br>
+    <input type="text" class="Capital-gain" name="Capital-gain" placeholder="Capital-gain" required="required" /><br>
+    <input type="text" class="Capital-loss" name="Capital-loss" placeholder="Capital-loss" required="required" /><br>
+    <input type="text" class="Hours-per-week" name="Hours-per-week" placeholder="Hours-per-week" required="required" /><br>
+    <input type="text" class="Native-country" name="Native-country" placeholder="Native-country" required="required" /><br>
+    <input type="text" class="Age_bin" name="Age_bin" placeholder="Age_bin" required="required" /><br>
+    <input type="text" class="Hours-per-week_bin" name="Hours-per-week_bin" placeholder="Hours-per-week_bin" required="required" /><br>
+    <button type="submit">Predict Salary</button>
+
+</form>
+<br>
+<br>
+<font class="text"style="text-align:center;color:white">
+<b>
+{{ prediction_text }}
+</b>
+</font>
+</div>
+</body>
+</html>
